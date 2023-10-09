@@ -1,0 +1,225 @@
+#ICS4U1
+
+#Imports tkinter which is used to make the GUI
+import tkinter as tk
+
+#Imports Timer allowing timed occurrences to take place.
+from threading import Timer
+
+#Imports tkinter's Image module to allow images to be displayed.
+from PIL import Image,ImageTk
+
+#Imports a window
+window = tk.Tk()
+#Provides the Title of the window
+window.title("Trivia!!")
+#Provides the size of the window
+window.geometry("350x320")
+
+#Introduction Label is displayed with the Welcome message 
+Intro = tk.Label(text="Welcome!!! The Star Wars Trivia is about to begin in 10 seconds.\n Get Ready to Travel to a galaxy far far away!!", font='font')
+Intro.pack(pady=10)
+
+#Darth Vader Hallway Scene image is displayed in the position indicated.
+image1 = ImageTk.PhotoImage(Image.open("Image1.jpg"))
+labelimage1 = tk.Label(window,image = image1).place(x=700,y=150)
+
+#After 8 seconds, the Introduction Label is destroyed.
+Intro.after(8000, Intro.destroy)
+
+#Function to display the possible answers to the first question
+def button():
+  #Introduction Label is replaced with the First Question.
+  label1=tk.Label(text= "Question 1:What is Baby Yoda's real name?", font=('Ariel',15)).place(x=100,y=50)
+  #Buttons are displayed with possible answers. The buttons are made with the appropriate colour, size, and placements.
+  button1 = tk.Button(window, text="Grogu", fg ="black", bg="orange", width=30, height=5, command=correct1).place(x=50,y=250)
+  button2 = tk.Button(window, text="Yaddle", fg ="black", bg="orange", width=30, height=5, command=wrong1).place(x=350,y=250)
+  button3 = tk.Button(window, text="Little Yoda", fg ="black", bg="orange", width=30, height=5, command=wrong1).place(x=50,y=350)
+  button4 = tk.Button(window, text="Child", fg ="black", bg="orange", width=30, height=5,command=wrong1).place(x=350,y=350)
+
+  
+#Function that will only display the second question if the first question has been answered correctly.
+def correct1():
+  #First question is replaced with the second Question.
+  labelcorrect=tk.Label(text="CORRECT ANSWER").place(x=100,y=100)
+  label2=tk.Label(text= "Question 2: Who was Anakin Skywalker's padawan?", font=('Ariel',15)).place(x=100,y=50)
+  #Score Label is displayed with the score.
+  score1 = tk.Label(text="Score:1").place(x=100,y=120)
+  #Buttons are displayed with possible answers. The buttons are made with the appropriate colour, size, and placements.
+  button5 = tk.Button(window, text="Obi Wan Kenobi", fg ="black", bg="orange", width=30, height=5, command=wrong2).place(x=50,y=250)
+  button6 = tk.Button(window, text="Ashoka Tano", fg ="black", bg="orange", width=30, height=5, command=correct2).place(x=350,y=250)
+  button7 = tk.Button(window, text="Cassian Andor", fg ="black", bg="orange", width=30, height=5, command=wrong2).place(x=50,y=350)
+  button8 = tk.Button(window, text="Count Dooku", fg ="black", bg="orange", width=30, height=5,command=wrong2).place(x=350,y=350)
+
+#Function that prompts the user to try again if the answer chosen is incorrect.
+def wrong1():
+  labelwrong=tk.Label(text="WRONG ANSWER. TRY AGAIN").place(x=100,y=100)
+
+  
+#Function that will only display the third question if the second question has been answered correctly.
+def correct2():
+  #Second question is replaced with the third Question.
+  labelcorrect=tk.Label(text="CORRECT ANSWER").place(x=100,y=100)
+  label3=tk.Label(text= "Question 3: What is the episode number of the first Star Wars movie?                           ", font=('Ariel',15)).place(x=100,y=50)
+   #Score Label is displayed with the score.
+  score1 = tk.Label(text="Score:2").place(x=100,y=120)
+  #Buttons are displayed with possible answers. The buttons are made with the appropriate colour, size, and placements.
+  button9 = tk.Button(window, text="Episode V", fg ="black", bg="orange", width=30, height=5, command=wrong3).place(x=50,y=250)
+  button10 = tk.Button(window, text="Episode IV", fg ="black", bg="orange", width=30, height=5, command=correct3).place(x=350,y=250)
+  button11 = tk.Button(window, text="Episode VII", fg ="black", bg="orange", width=30, height=5, command=wrong3).place(x=50,y=350)
+  button12 = tk.Button(window, text="Episode I", fg ="black", bg="orange", width=30, height=5,command=wrong3).place(x=350,y=350)
+
+#Function that prompts the user to try again if the answer chosen is incorrect.
+def wrong2():
+  labelwrong=tk.Label(text="WRONG ANSWER. TRY AGAIN").place(x=100,y=100)
+
+  
+#Function that will only display the fourth question if the third question has been answered correctly.
+def correct3():
+  #Third question is replaced with the fourth Question.
+  labelcorrect=tk.Label(text="CORRECT ANSWER").place(x=100,y=100)
+  label4=tk.Label(text= "Question 4: Han Solo's ship is called the _________                                     ", font=('Ariel',15)).place(x=100,y=50)
+   #Score Label is displayed with the score.
+  score1 = tk.Label(text="Score:3").place(x=100,y=120)
+  #Buttons are displayed with possible answers. The buttons are made with the appropriate colour, size, and placements.
+  button13 = tk.Button(window, text="Razorcrest", fg ="black", bg="orange", width=30, height=5, command=wrong4).place(x=50,y=250)
+  button14 = tk.Button(window, text="Royal Cruiser", fg ="black", bg="orange", width=30, height=5, command=wrong4).place(x=350,y=250)
+  button15 = tk.Button(window, text="Imperial Shuttle", fg ="black", bg="orange", width=30, height=5, command=wrong4).place(x=50,y=350)
+  button16 = tk.Button(window, text="Millennium Falcon", fg ="black", bg="orange", width=30, height=5,command=correct4).place(x=350,y=350)
+
+#Function that prompts the user to try again if the answer chosen is incorrect.
+def wrong3():
+  labelwrong=tk.Label(text="WRONG ANSWER. TRY AGAIN").place(x=100,y=100)
+
+  
+#Function that will only display the fifth question if the fourth question has been answered correctly.
+def correct4():
+  #Fourth question is replaced with the fifth Question.
+  labelcorrect=tk.Label(text="CORRECT ANSWER").place(x=100,y=100)
+  label5=tk.Label(text= "Question 5: Which sith lord was Palpatine?                                      ", font=('Ariel',15)).place(x=100,y=50)
+   #Score Label is displayed with the score.
+  score1 = tk.Label(text="Score:4").place(x=100,y=120)
+  #Buttons are displayed with possible answers. The buttons are made with the appropriate colour, size, and placements.
+  button17 = tk.Button(window, text="Darth Vader", fg ="black", bg="orange", width=30, height=5, command=wrong5).place(x=50,y=250)
+  button18 = tk.Button(window, text="Darth Plagueis", fg ="black", bg="orange", width=30, height=5, command=wrong5).place(x=350,y=250)
+  button19 = tk.Button(window, text="Darth Bane", fg ="black", bg="orange", width=30, height=5, command=wrong5).place(x=50,y=350)
+  button20 = tk.Button(window, text="Darth Sidious", fg ="black", bg="orange", width=30, height=5,command=correct5).place(x=350,y=350)
+
+#Function that prompts the user to try again if the answer chosen is incorrect.
+def wrong4():
+  labelwrong=tk.Label(text="WRONG ANSWER. TRY AGAIN").place(x=100,y=100)
+
+  
+#Function that will only display the sixth question if the fifth question has been answered correctly.
+def correct5():
+  #Fifth question is replaced with the sixth Question.
+  labelcorrect=tk.Label(text="CORRECT ANSWER").place(x=100,y=100)
+  label6=tk.Label(text= "Question 6: What is the Mandalorian saying?           ", font=('Ariel',15)).place(x=100,y=50)
+   #Score Label is displayed with the score.
+  score1 = tk.Label(text="Score:5").place(x=100,y=120)
+  #Buttons are displayed with possible answers. The buttons are made with the appropriate colour, size, and placements.
+  button21 = tk.Button(window, text="This is the the way", fg ="black", bg="orange", width=30, height=5, command=correct6).place(x=50,y=250)
+  button22 = tk.Button(window, text="For light and life", fg ="black", bg="orange", width=30, height=5, command=wrong6).place(x=350,y=250)
+  button23 = tk.Button(window, text="May the force be with you", fg ="black", bg="orange", width=30, height=5, command=wrong6).place(x=50,y=350)
+  button24 = tk.Button(window, text="We are all the republic", fg ="black", bg="orange", width=30, height=5,command=wrong6).place(x=350,y=350)
+
+#Function that prompts the user to try again if the answer chosen is incorrect.
+def wrong5():
+  labelwrong=tk.Label(text="WRONG ANSWER. TRY AGAIN").place(x=100,y=100)
+
+  
+#Function that will only display the seventh question if the sixth question has been answered correctly.
+def correct6():
+  #Sixth question is replaced with the Seventh Question.
+  labelcorrect=tk.Label(text="CORRECT ANSWER").place(x=100,y=100)
+  label6=tk.Label(text= "Question 7: Who composed the soundtrack to the Star Wars films?                             ", font=('Ariel',15)).place(x=100,y=50)
+   #Score Label is displayed with the score.
+  score1 = tk.Label(text="Score:6").place(x=100,y=120)
+  #Buttons are displayed with possible answers. The buttons are made with the appropriate colour, size, and placements.
+  button25 = tk.Button(window, text="Natalie Holt", fg ="black", bg="orange", width=30, height=5, command=wrong7).place(x=50,y=250)
+  button26 = tk.Button(window, text="Michael Giacchino", fg ="black", bg="orange", width=30, height=5, command=wrong7).place(x=350,y=250)
+  button27 = tk.Button(window, text="John Williams", fg ="black", bg="orange", width=30, height=5, command=correct7).place(x=50,y=350)
+  button28 = tk.Button(window, text="Ludwig Göransson", fg ="black", bg="orange", width=30, height=5,command=wrong7).place(x=350,y=350)
+
+#Function that prompts the user to try again if the answer chosen is incorrect.
+def wrong6():
+  labelwrong=tk.Label(text="WRONG ANSWER. TRY AGAIN").place(x=100,y=100)
+
+  
+#Function that will only display the eighth question if the seventh question has been answered correctly.
+def correct7():
+  #Seventh question is replaced with the eighth Question.
+  labelcorrect=tk.Label(text="CORRECT ANSWER").place(x=100,y=100)
+  label6=tk.Label(text= "Question 8:What species is Jar Jar Binks in the prequel films?                    ", font=('Ariel',15)).place(x=100,y=50)
+   #Score Label is displayed with the score.
+  score1 = tk.Label(text="Score:7").place(x=100,y=120)
+  #Buttons are displayed with possible answers. The buttons are made with the appropriate colour, size, and placements.
+  button29 = tk.Button(window, text="Mon Calamari", fg ="black", bg="orange", width=30, height=5, command=wrong8).place(x=50,y=250)
+  button30 = tk.Button(window, text="Twi'lek", fg ="black", bg="orange", width=30, height=5, command=wrong8).place(x=350,y=250)
+  button31 = tk.Button(window, text="Gungan", fg ="black", bg="orange", width=30, height=5, command=correct8).place(x=50,y=350)
+  button32 = tk.Button(window, text="Ewok", fg ="black", bg="orange", width=30, height=5,command=wrong8).place(x=350,y=350)
+
+#Function that prompts the user to try again if the answer chosen is incorrect.
+def wrong7():
+  labelwrong=tk.Label(text="WRONG ANSWER. TRY AGAIN").place(x=100,y=100)
+
+  
+#Function that will only display the ninth question if the eighth question has been answered correctly.
+def correct8():
+  #Eighth question is replaced with the ninth Question.
+  labelcorrect=tk.Label(text="CORRECT ANSWER").place(x=100,y=100)
+  label6=tk.Label(text= "Question 9:What colour is Mace Windu's lightsaber?                                      ", font=('Ariel',15)).place(x=100,y=50)
+   #Score Label is displayed with the score.
+  score1 = tk.Label(text="Score:8").place(x=100,y=120)
+  #Buttons are displayed with possible answers. The buttons are made with the appropriate colour, size, and placements.
+  button33 = tk.Button(window, text="Blue", fg ="black", bg="orange", width=30, height=5, command=wrong9).place(x=50,y=250)
+  button34 = tk.Button(window, text="Green", fg ="black", bg="orange", width=30, height=5, command=wrong9).place(x=350,y=250)
+  button35 = tk.Button(window, text="White", fg ="black", bg="orange", width=30, height=5, command=wrong9).place(x=50,y=350)
+  button36 = tk.Button(window, text="Purple", fg ="black", bg="orange", width=30, height=5,command=correct9).place(x=350,y=350)
+
+#Function that prompts the user to try again if the answer chosen is incorrect.
+def wrong8():
+  labelwrong=tk.Label(text="WRONG ANSWER. TRY AGAIN").place(x=100,y=100)
+
+  
+#Function that will only display the tenth question if the ninth question has been answered correctly.
+def correct9():
+  #Ninth question is replaced with the tenth Question.
+  labelcorrect=tk.Label(text="CORRECT ANSWER").place(x=100,y=100)
+  label6=tk.Label(text= "Question 10:Who was the original commander of the Death Star?                         ", font=('Ariel',15)).place(x=100,y=50)
+   #Score Label is displayed with the score.
+  score1 = tk.Label(text="Score:9").place(x=100,y=120)
+  #Buttons are displayed with possible answers. The buttons are made with the appropriate colour, size, and placements.
+  button37 = tk.Button(window, text="Luke Skywalker", fg ="black", bg="orange", width=30, height=5, command=wrong10).place(x=50,y=250)
+  button38 = tk.Button(window, text="Yoda", fg ="black", bg="orange", width=30, height=5, command=wrong10).place(x=350,y=250)
+  button39 = tk.Button(window, text="Padme Amidala", fg ="black", bg="orange", width=30, height=5, command=wrong10).place(x=50,y=350)
+  button40 = tk.Button(window, text="Governor Tarkin", fg ="black", bg="orange", width=30, height=5,command=correct10).place(x=350,y=350)
+
+#Function that prompts the user to try again if the answer chosen is incorrect.
+def wrong9():
+  labelwrong=tk.Label(text="WRONG ANSWER. TRY AGAIN").place(x=100,y=100)
+
+  
+#Function that will only display the congratulations message if the tenth question has been answered correctly.
+def correct10():
+  #Tenth question is replaced with the Congratulations Message.
+  labelcorrect=tk.Label(text="CORRECT ANSWER").place(x=100,y=100)
+  label6=tk.Label(text= "CONGRATULATIONS YOUNG PADAWAN!! YOU FINISHED THE TRIVIA GAME!!!", font=('Ariel',15)).place(x=100,y=50)
+   #Score Label is displayed with the score.
+  score1 = tk.Label(text="Score:10/10 GREAT JOB").place(x=100,y=120)
+  #Buttons are displayed with Congratulatory Messages. The buttons are made with the appropriate colour, size, and placements.
+  button37 = tk.Button(window, text="YOU DID IT", fg ="black", bg="orange", width=30, height=5).place(x=50,y=250)
+  button38 = tk.Button(window, text="YAYYY", fg ="black", bg="orange", width=30, height=5).place(x=350,y=250)
+  button39 = tk.Button(window, text="GREAT JOB", fg ="black", bg="orange", width=30, height=5).place(x=50,y=350)
+  button40 = tk.Button(window, text="WHOOOO", fg ="black", bg="orange", width=30, height=5).place(x=350,y=350)
+
+#Function that prompts the user to try again if the answer chosen is incorrect.
+def wrong10():
+  labelwrong=tk.Label(text="WRONG ANSWER. TRY AGAIN").place(x=100,y=100)
+
+#Starts the timer for the disappearance of the introduction message
+t=Timer(10.0,button)
+t.start()
+
+#Loops the game so that buttons can be clicked multiple times
+tk.mainloop()
